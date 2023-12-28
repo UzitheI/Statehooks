@@ -16,8 +16,24 @@ class ClassCom extends Component{
         }
         this.handleInput=this.handleInput.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleDelete=this.handleDelete.bind(this);
+        this.handleCount=this.handleCount.bind(this);
 
     }
+    handleCount(){
+        if(this.handleInput){
+            count+=1
+        }
+        if(this.handleDelete){
+            count-=1
+        }
+    }
+    handleDelete(todo){
+        this.setState((state)=>({
+            ...state,
+            todos:state.todos.filter((_,i)=>i!==todo)
+        }))
+    } 
     handleInput(e){
         this.setState((state)=>({
             ...state,
@@ -47,6 +63,7 @@ class ClassCom extends Component{
                         {this.state.todos.map((todo)=>(
                             <li key={todo}>{todo}</li>
                         ))}
+                        <button style={{marginLeft:'10px'}} onClick={()=>this.handleDelete(todo)}>Delete</button>
                     </ul>
 
                 </section>
