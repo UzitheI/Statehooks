@@ -1,8 +1,4 @@
-//when we use class components we cannot use useEffect to handle the components throughout its lifecycle, so we used different functions entirely
 
-/*
-render() is the most used
+const App = () => <h1>Our First Test</h1>;
 
-//in the docs, class components are only really important when dealing with legacy documents
-
-*/
+export default App;
